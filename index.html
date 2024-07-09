@@ -1,1 +1,225 @@
-Hello
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Reverse Engineering 3D CAD Models from Images through VLM-Assisted Conditional Factorization">
+  <meta name="keywords" content="Image-to-CAD, Reverse Engineering, Vision Language Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Img2CAD: Reverse Engineering 3D CAD Models from Images through VLM-Assisted Conditional Factorization</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/css/bulma.min.css">
+  <link rel="stylesheet" href="/static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="/static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="/static/css/index.css">
+  <link rel="icon" href="/static/images/favicon.svg">
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="/static/js/fontawesome.all.min.js"></script>
+  <script src="/static/js/bulma-carousel.min.js"></script>
+  <script src="/static/js/bulma-slider.min.js"></script>
+  <script src="/static/js/index.js"></script>
+
+  <style>
+    .models-flex-container {
+        display: flex;
+        justify-content: center; /* Centers the items horizontally */
+        align-items: center; /* Aligns items vertically */
+        flex-wrap: wrap; /* Allows items to wrap onto the next line as needed */
+        gap: 20px; /* Spacing between each model container */
+    }
+    .model-container {
+        width: 20%; /* Adjust the width as needed */
+        text-align: center; /* Centers the caption text under the model-viewer */
+    }
+    model-viewer {
+        width: 100%; /* Makes the model viewer take the full width of the container */
+        height: 250px; /* Adjust height as needed */
+        display: block; /* Ensures that the model-viewer is properly block displayed */
+    }
+    .caption {
+        font-size: 14px; /* Adjust the font size as needed */
+        color: #333; /* Adjust the text color as needed */
+    }
+</style>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Img2CAD: Reverse Engineering 3D CAD Models from Images through VLM-Assisted Conditional Factorization</h1>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2312.15130.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reverse engineering 3D computer-aided design (CAD) models from images is an important task for many downstream applications including interactive editing, manufacturing, architecture, robotics, etc. The difficulty of the task lies in vast representational disparities between the CAD output and the image input. CAD models are precise, programmatic constructs that involves sequential operations combining discrete command structure with continuous attributes -- making it challenging to learn and optimize in an end-to-end fashion. 
+            Concurrently, input images introduce inherent challenges such as photometric variability and sensor noise, complicating the reverse engineering process. In this work, we introduce a novel approach that conditionally factorizes the task into two sub-problems. First, we leverage large foundation models, particularly GPT-4V, to predict the global discrete structure with semantic information. Second, we propose TrAssembler that conditioned on the discrete structure with semantics predicts the continuous attribute values.
+            To support the training of our TrAssembler, we further constructed an annotated CAD dataset of common objects from ShapeNet. Putting all together, our approach and data demonstrate significant first steps towards CAD-ifying images in the wild.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+        <!-- <h2 class="title is-3">Video</h2> -->
+        <div class="content">
+          <img src="/static/images/teaser.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-five-sixths">
+          <h2 class="title is-3">Pipeline</h2>
+          <div class="content">
+            <img src="/static/images/pipeline.jpg" />
+          </div>
+        </div>
+    </div> -->
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+        <h2 class="title is-3">Qualitative Comparison on ShapeNet</h2>
+        <div class="models-flex-container">
+            <div class="model-container">
+                <model-viewer src="/static/meshes/shapenet/42713_gt.glb" alt="3D Model" ar ar-modes="webxr scene-viewer quick-look" environment-image="neutral" auto-rotate camera-controls ar-status="not-presenting">
+                </model-viewer>
+                <p class="caption">GT</p>
+            </div>
+
+            <div class="model-container">
+                <model-viewer src="/static/meshes/shapenet/42713_ours.glb" alt="3D Model" ar ar-modes="webxr scene-viewer quick-look" environment-image="neutral" auto-rotate camera-controls ar-status="not-presenting">
+                </model-viewer>
+                <p class="caption">Ours</p>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-five-sixths">
+        <h2 class="title is-3">Qualitative Comparison on Pix3D<br>(Real Images in the Wild)</h2>
+        <div class="content">
+          <img src="/static/images/dist-cat.png" />
+          <img src="/static/images/dist-size.png" width="44%" />
+          <img src="/static/images/dist-pose.png" width="57%" />
+          <img src="/static/images/dist-occ.png" width="55%" />
+        </div>
+      </div>
+    </div> -->
+
+
+  </div>
+
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="#">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="#" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
